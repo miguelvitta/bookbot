@@ -1,13 +1,21 @@
-def get_book_text(book_path):
-    file_contents = ""
-    with open(book_path) as file:
-        file_contents = file.read()
-    return file_contents
+import re
 
-def get_num_words(book_path):
-    num_words = []
-    file_contents = ""
-    with open(book_path) as file:
-        file_contents = file.read()
-    num_words = file_contents.split()
-    return len(num_words)
+WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
+
+def get_book_text(path):
+    with open(path, encoding="utf-8") as file:
+        return file.read()
+
+def tokenize_words(text):
+    return WORD_RE.findall(text)
+
+def get_num_words(path):
+    text = get_book_text(path)
+    return len(tokenize_words(text))
+
+def get_char_count(path):
+    text = get_book_text(path).lower()
+    char_count = {}
+    for char in text:
+        char_count[char] = char_count.get(char, 0) + 1
+    return char_count
