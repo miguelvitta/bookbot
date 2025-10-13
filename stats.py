@@ -19,3 +19,6 @@ def get_char_count(path):
     for char in text:
         char_count[char] = char_count.get(char, 0) + 1
     return char_count
+
+def sorted_array:
+
