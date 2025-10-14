@@ -20,5 +20,10 @@ def get_char_count(path):
         char_count[char] = char_count.get(char, 0) + 1
     return char_count
 
-def sorted_array:
+def sort_on(items):
+    return items["num"]
+
+def sort_dictionary(char_count):
+    sorted = char_count.sort(reverse=True, key=sort_on)
+    return sorted
 
