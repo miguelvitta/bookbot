@@ -24,6 +24,11 @@ def sort_on(items):
     return items["num"]
 
 def sort_dictionary(char_count):
-    sorted = char_count.sort(reverse=True, key=sort_on)
-    return sorted
+    char_list = []
+    for char, count in char_count.items():
+        if char.isalpha():
+            char_dict = {"char": char, "num": count}
+            char_list.append(char_dict)
+    char_list.sort(key=sort_on, reverse=True)
+    return char_list
 
