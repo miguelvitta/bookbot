@@ -14,6 +14,7 @@ def main():
     print("--------- Character Count -------")
     for word in sorted_dictionary:
         if word["char"].isalpha():
-            print(f"{word["char"]} : {word["num"]}")
+            print(f"{word["char"]}: {word["num"]}")
+    print("============= END ===============")
 
 main()
