@@ -1,17 +1,14 @@
 import re
 
-WORD_RE = re.compile(r"[A-Za-z0-9]+(?:['’-][A-Za-z0-9]+)*")
-
 def get_book_text(path):
     with open(path, encoding="utf-8") as file:
         return file.read()
 
-def tokenize_words(text):
-    return WORD_RE.findall(text)
-
 def get_num_words(path):
-    text = get_book_text(path)
-    return len(tokenize_words(text))
+    with open(path, encoding="utf-8") as file:
+        file_contents = file.read()
+    words = file_contents.split()
+    return len(words)
 
 def get_char_count(path):
     text = get_book_text(path).lower()
